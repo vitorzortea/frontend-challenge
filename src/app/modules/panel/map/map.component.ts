@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlacesService } from 'src/app/core/services/places.service';
 
 
 @Component({
@@ -11,9 +12,17 @@ export class MapComponent implements OnInit {
   lng = -49.2455052;
   zoom = 12.5;
 
-  constructor() { }
+  isAdd = false;
+
+  constructor(
+    public placesService: PlacesService
+  ) { }
 
   ngOnInit() {
+  }
+
+  toggleAdd() {
+    this.isAdd = !this.isAdd;
   }
 
 }

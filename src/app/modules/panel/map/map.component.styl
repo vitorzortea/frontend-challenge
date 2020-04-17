@@ -1,6 +1,93 @@
-agm-map
-  height calc(100vh - 100px)
+@import '../../../../stylus/_variable'
 
-agm-marker
-  background red
-  color green
+.map-interface
+  position relative
+
+  .menu-map
+    position absolute
+    top 20px
+    left 20px
+    width 300px
+    display flex
+    z-index 3
+    overflow hidden
+
+    .busca
+      position relative
+      flex auto
+      font-size 16px
+
+      i
+        position absolute
+        left 10px
+        top 50%
+        transform translate(0, -50%)
+
+      input
+        width 100%
+        padding 10px 10px 10px 30px
+
+    button
+      padding 5px 10px
+      font-size 20px
+
+      &:hover
+        cursor pointer
+        background-color color-yellow
+        color color-white
+        border-left solid 1px color-gray2
+
+
+
+  .box-place
+    position absolute
+    top 20px
+    left 20px
+    width 300px
+    z-index 3
+    overflow hidden
+    border-radius 10px 0 10px 10px
+
+    .add-photo
+      height 150px
+      background color-gray-light-font
+      color color-white
+      display flex
+      align-items center
+      justify-content center
+      font-size 60px
+      margin-bottom 20px
+      cursor pointer
+
+    button
+      display table
+      width 95%
+      text-transform uppercase
+      font-weight bold
+      font-size 16px
+      color color-blue
+      background color-yellow
+      padding 10px
+      border-radius 10px
+      margin 10px auto
+
+  .voltar-busca
+    position absolute
+    top 20px
+    left 320px
+    padding 5px 10px
+    font-size 20px
+    z-index 2
+    border-radius 0 10px 10px 0
+
+    &:hover
+      cursor pointer
+      background-color color-yellow
+      color color-white
+
+  agm-map
+    height calc(100vh - 100px)
+
+  agm-marker
+    background red
+    color green

@@ -1,18 +1,24 @@
 <div id="login">
-  <main class="box-white anima-slide-down">
+  <main class="box-white anima-slide-down" *ngIf="!loading">
     <h1>
       <img src="assets/img/logo-full.png" alt="Snowman Labs - Tourist Spots" />
     </h1>
     <p> Vitor Zortéa<strong>Challege</strong></p>
     <div>
-      <button>
+      <button (click)="signInWithFB()">
         <i class="fab fa-facebook-f"></i>
         Entrar com Facebook
       </button>
-      <button>
+      <button  (click)="signOut()">
         <i class="fab fa-facebook-f"></i>
         Cadastrar com Facebook
       </button>
     </div>
+  </main>
+  <main class="box-white anima-slide-down" *ngIf="loading">
+    <span class="loading">
+      <img src="assets/img/load.png" alt="Snowman Labs - Tourist Spots" />
+      <p class="loading">Carregando</p>
+    </span>
   </main>
 </div>

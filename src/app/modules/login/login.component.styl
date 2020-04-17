@@ -57,3 +57,26 @@
       border-color color-blue
       color color-white
 
+  .loading
+    position relative
+    display table
+
+    img
+      animation loading 10s infinite cubic-bezier(0.26, 0.26, 0.64, 0.63)
+
+    p
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%, calc(-50% + 0.5em))
+      line-height 1em
+      font-weight bold
+
+
+@keyframes loading
+	from
+		transform rotate(0deg)
+
+	to
+		transform rotate(360deg)
+

@@ -29,10 +29,6 @@ export class LoginComponent implements OnInit {
       (error) => this.loading = false,
     );
   }
-  signOut(): void {
-    this.authService.signOut();
-    localStorage.removeItem('user');
-  }
 
   isLogin() {
     if (localStorage.getItem('user')) {

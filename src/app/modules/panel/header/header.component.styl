@@ -1,0 +1,32 @@
+@import '../../../../stylus/_variable'
+
+header .container
+  display flex
+  align-items center
+  justify-content space-between
+
+  h1
+    max-width 360px
+    width 100%
+
+  &>div
+    img
+      max-width 55px
+      vertical-align middle
+
+    button
+      vertical-align middle
+      margin-right 20px
+      padding 0 10px
+      color color-blue
+      font-weight bold
+      font-size 16px
+      cursor pointer
+      background-image linear-gradient(to right, color-yellow, color-yellow);
+      background-repeat no-repeat
+      background-position bottom center
+      background-size 0 2px
+      transition 0.5s
+
+      &:hover
+        background-size calc(100% - 10px) 2px

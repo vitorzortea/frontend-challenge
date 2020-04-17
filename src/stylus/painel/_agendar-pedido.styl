@@ -1,0 +1,187 @@
+.recibo-agendamento
+  width 100%
+  max-width 300px
+  padding 0 20px
+  margin 0 auto
+  position relative
+
+  &>div
+    position sticky
+    top 20px
+    left 0
+
+  .box-recibo
+    background-color white
+    border solid 1px gray3
+    border-radius 10px
+    overflow hidden
+    margin-bottom 20px
+
+    h2
+      background-color turquesa
+      color white
+      text-transform uppercase
+      font-size 18px
+      text-align center
+
+    h3
+      background-color gray1
+      border-bottom solid 1px gray3
+      color turquesa-font
+      font-size 14px
+      font-weight normal
+      padding 5px 10px
+      margin-bottom 10px
+      -webkit-text-stroke 0.5px
+
+      &:before
+        content ''
+        width 8px
+        height 8px
+        background-color turquesa
+        border-radius 50%
+        display inline-table
+        vertical-align middle
+        margin-right 10px
+
+    &>div:not(:last-child)
+      display inline-table
+      margin 10px
+      line-height 1.2em
+
+    &>div:last-child
+      display flex
+      padding 10px
+      align-items flex-end
+
+      p:first-child
+        flex auto
+
+      p:last-child
+        font-weight bold
+        font-size 22px
+
+        &>span
+          color turquesa
+          font-size 12px
+
+    &>.roler
+      display table
+      width 90%
+      margin 0 auto
+
+  .btn-default
+    width 100%
+    font-weight bold
+    font-size 14px
+
+
+.form-agendamento
+  flex auto
+  max-width 780px
+
+  h3
+    font-weight normal
+    font-size 16px
+    margin-bottom 10px
+
+  input[type="checkbox"], input[type="radio"]
+    display none
+
+  .label-radio
+    &>div
+      border solid 1px gray3
+      background-color white
+      padding 12px
+      border-radius 5px
+      text-align center
+      cursor pointer
+
+      &:hover
+        background-color turquesa-light
+        border-color turquesa
+
+    &>input:checked+div
+      background turquesa
+      border-color turquesa
+      color white
+
+  .info-home
+      border solid 1px gray3
+      background-color white
+      padding 8px
+      border-radius 5px
+      cursor pointer
+      display flex
+      align-items center
+
+      &>p
+        flex auto
+
+      &>span
+        display flex
+        align-items center
+
+        &>button
+          padding 5px
+          margin 0 5px
+          line-height 0
+          cursor pointer
+          transition 0.5s
+
+          &:hover
+            background-color turquesa
+            color white
+            border-radius 50%
+
+  .label-check-box
+    &>div
+      border solid 1px gray3
+      background-color white
+      padding 12px
+      border-radius 5px
+      cursor pointer
+
+      span
+        display inline-table
+        position relative
+        border solid 1px turquesa-font
+        width 40px
+        height 20px
+        border-radius 30px
+        vertical-align middle
+        margin-right 10px
+        background-color white
+
+        &:before
+          content ''
+          width 16px
+          height 16px
+          border-radius 50%
+          border solid 1px turquesa-dark
+          background-color white
+          display table
+          position absolute
+          top 50%
+          left 2px
+          transform translateY(-50%)
+          transition 0.5s
+
+      p
+        display inline-table
+        vertical-align middle
+
+      &:hover
+        background-color turquesa-light
+        border-color turquesa
+
+    &>input:checked+div
+      border-color turquesa
+
+      span
+        border-color turquesa-font
+        background-color turquesa
+
+        &:before
+          left calc(100% - 19px)
+          border solid 1px turquesa-font

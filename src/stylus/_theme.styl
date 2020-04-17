@@ -1,0 +1,65 @@
+// ==========================================
+// Input Básicos
+// ==========================================
+input
+  width 100%
+  background transparent
+  border-bottom solid 2px gray-light-font
+  padding 5px 10px
+  color gray-font
+
+    &::placeholder
+      color gray-light-font
+
+  &:hover, &:focus
+    border-color turquesa
+    background rgba(255,255,255,0.3)
+
+    &::placeholder
+      color gray-font
+
+// ==========================================
+// Input Ícones
+// ==========================================
+.input-icon
+  position relative
+
+  input
+    padding-left 40px
+
+  i
+    position absolute
+    font-size 20px
+    left 5px
+    top 50%
+    transform translate(0, -50%)
+
+  &:hover i
+    color turquesa
+// ==========================================
+// Botão Padrão
+// ==========================================
+.btn-default
+  background-color turquesa
+  color white
+  min-width 200px
+  padding 5px 30px
+  border-radius 8px
+  cursor pointer
+
+  &:hover
+    background-color turquesa-dark
+
+
+// ==========================================
+// Régua
+// ==========================================
+.roler
+  display table
+  width 100%
+  flex 100%
+  height 0
+  border-top solid 1px #D9DDDD
+  border-bottom solid 1px #FFFFFF
+  margin 10px 0
+// ==========================================

@@ -1,0 +1,109 @@
+#pagina-inicial
+  display block
+	animation slide-down 1s
+	animation-fill-mode forwards
+
+.infos-gerais
+  span
+    flex auto
+
+    h2
+      display table
+      font-size 16px
+      line-height 1em
+
+      span
+        display table
+
+        &:nth-child(1)
+          font-size 32px
+          line-height 1em
+
+        &:nth-child(2)
+          font-weight normal
+          font-size 14px
+          line-height 1em
+          margin 0 0 0 auto
+
+          i
+            color turquesa
+
+  .box-infos
+    background white
+    padding 10px 100px 10px 10px
+    margin 0 5px
+    border-radius 8px
+    line-height 1em
+    background-image url('assets/img/icones/marca.png')
+    background-repeat no-repeat
+    background-size auto 90%
+    background-position calc(100% - 10px) center
+
+    &:nth-child(3) h3:before
+      background-color red
+
+    h3
+      font-weight normal
+      font-siza 18px
+
+      &:before
+        content ''
+        width 10px
+        height 10px
+        display inline-table
+        vertical-align middle
+        margin-right 4px
+        border-radius 50%
+        background-color turquesa
+
+    p
+      font-size 40px
+      line-height 1.2em
+      margin-left 10px
+
+.table-pedidos
+  width 100%
+  background white
+  border solid 1px gray3
+  border-radius 0 10px 10px
+  padding 15px
+
+  .no-result
+    justify-content center
+
+    img
+      width 80px
+
+    h4
+      font-size 18px
+      line-height 1.2em
+
+.novo-pedido
+  flex auto
+  text-align right
+  padding 10px
+
+.tab-table
+  background white
+  border solid 1px gray3
+  border-bottom none
+  padding 0 15px
+  border-radius 10px 10px 0 0
+  margin-bottom -2px
+  position relative
+  z-index 2
+
+  h3
+    text-transform uppercase
+    border-bottom solid 1px gray3
+    font-size 16px
+    padding 10px 0
+
+@keyframes slide-down
+	from
+		transform translate(0, -20px)
+		opacity 0
+
+	to
+		transform translate(0, 0)
+		opacity 1

@@ -16,29 +16,7 @@
       </button>
     </ng-container>
     <ng-container *ngIf="isViewPlace">
-      <div class="box-place-view box-white anima-slide-down">
-        <ng-container *ngIf="placeSelect">
-          <div class="photo-place" [style.background-image]="'url(assets/img/places/' + placeSelect.photo + '.jpg)'"></div>
-          <div>
-            <div>
-              <h1>{{placeSelect.name}}</h1>
-              <p class="cidade">{{placeSelect.address}}, {{placeSelect.city}} - {{placeSelect.countrie}}</p>
-              <span class="nota">
-                <app-nota [nota]="placeSelect.score"></app-nota>
-              </span>
-            </div>
-            <div>
-              <h2>Categoria</h2>
-              <p>{{placeSelect.category}}</p>
-            </div>
-
-            <div>
-              <h2>Sobre</h2>
-              <p>{{placeSelect.about}}</p>
-            </div>
-          </div>
-        </ng-container>
-      </div>
+      <app-view-place [placeSelect]="placeSelect"></app-view-place>
       <button class="voltar-busca box-white anima-slide-right" (click)="fecharEspecificPlace(-2)">
         <i class="fas fa-arrow-left"></i>
       </button>

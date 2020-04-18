@@ -1,0 +1,23 @@
+<div class="main-map anima-slide-down">
+  <ng-container *ngIf="placeSelect">
+    <div class="photo-place" [style.background-image]="'url(assets/img/places/' + placeSelect.photo + '.jpg)'"></div>
+    <div class="info-place">
+      <div>
+        <h1>{{placeSelect.name}}</h1>
+        <p class="cidade">{{placeSelect.address}}, {{placeSelect.city}} - {{placeSelect.countrie}}</p>
+        <span class="nota">
+          <app-nota [nota]="placeSelect.score"></app-nota>
+        </span>
+      </div>
+      <div>
+        <h2>Categoria</h2>
+        <p>{{placeSelect.category}}</p>
+      </div>
+
+      <div>
+        <h2>Sobre</h2>
+        <p>{{placeSelect.about}}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>

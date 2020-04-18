@@ -2,7 +2,7 @@
   <ng-container>
     <div class="menu-map box-white anima-slide-down">
       <div class="busca">
-        <i class="fas fa-search"></i>
+        <i class="fas fa-search" (click)="toggleViewPlace()"></i>
         <input type="search" placeholder="Buscar Local">
       </div>
       <button class="adicionar-local" (click)="toggleAdd()">
@@ -43,10 +43,76 @@
         <i class="fas fa-arrow-left"></i>
       </button>
     </ng-container>
+    <ng-container *ngIf="isViewPlace">
+      <div class="box-place-view box-white anima-slide-down">
+        <ng-container *ngIf="placeSelect">
+          <div class="photo-place" [style.background-image]="'url(assets/img/places/' + placeSelect.photo + '.jpg)'"></div>
+          <div>
+            <div>
+              <h1>{{placeSelect.name}}</h1>
+              <p class="cidade">{{placeSelect.address}}, {{placeSelect.city}} - {{placeSelect.countrie}}</p>
+              <span class="nota">
+                <ng-container *ngIf="placeSelect.score < 0.5">
+                  <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 0.5 && placeSelect.score < 1">
+                  <i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 1 && placeSelect.score < 1.5">
+                  <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 1.5 && placeSelect.score < 2">
+                  <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 2 && placeSelect.score < 2.5">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 2.5 && placeSelect.score < 3">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 3 && placeSelect.score < 3.5">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 3.5 && placeSelect.score < 4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 4 && placeSelect.score < 4.5">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 4.5 && placeSelect.score < 5">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </ng-container>
+                <ng-container *ngIf="placeSelect.score >= 5">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </ng-container>
+              </span>
+            </div>
+            <div>
+              <h2>Categoria</h2>
+              <p>{{placeSelect.category}}</p>
+            </div>
+
+            <div>
+              <h2>Sobre</h2>
+              <p>{{placeSelect.about}}</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <button class="voltar-busca box-white anima-slide-right" (click)="fecharEspecificPlace(-2)">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+    </ng-container>
   </ng-container>
   <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-    <ng-container *ngFor="let place of placesService.places">
-      <agm-marker  [latitude]="place.lat" [longitude]="place.lng" animation="DROP" title={{place.name}}></agm-marker>
+    <ng-container *ngFor="let place of placesService.places; let i=index">
+      <agm-marker
+        [latitude]="place.lat"
+        [longitude]="place.lng"
+        animation="DROP"
+        title={{place.name}}
+        (markerClick)="abrirEspecificPlace(i)"
+      ></agm-marker>
     </ng-container>
   </agm-map>
 </div>

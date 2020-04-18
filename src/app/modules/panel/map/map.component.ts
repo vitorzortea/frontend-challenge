@@ -13,6 +13,9 @@ export class MapComponent implements OnInit {
   zoom = 12.5;
 
   isAdd = false;
+  isViewPlace = false;
+  oldI = -1;
+  placeSelect: any;
 
   constructor(
     public placesService: PlacesService
@@ -22,7 +25,28 @@ export class MapComponent implements OnInit {
   }
 
   toggleAdd() {
+    this.isViewPlace = false;
     this.isAdd = !this.isAdd;
+  }
+
+  fecharEspecificPlace() {
+    this.isAdd = false;
+    this.isViewPlace = false;
+    this.oldI = -1;
+    this.placeSelect = undefined;
+  }
+
+  abrirEspecificPlace(i) {
+    this.isAdd = false;
+    if (i === this.oldI) {
+      this.oldI = -1;
+      this.isViewPlace = false;
+      this.placeSelect = undefined;
+    } else {
+      this.oldI = i;
+      this.isViewPlace = true;
+      this.placeSelect = this.placesService.places[i];
+    }
   }
 
 }

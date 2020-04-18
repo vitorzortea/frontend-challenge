@@ -10,35 +10,7 @@
       </button>
     </div>
     <ng-container *ngIf="isAdd">
-      <div class="box-place box-white anima-slide-down">
-        <div class="add-photo">
-          <i class="fas fa-camera-alt"></i>
-        </div>
-        <div class="input-icon">
-          <i class="fal fa-place-of-worship"></i>
-          <input type="text" placeholder="Nome" />
-        </div>
-        <div class="input-icon">
-          <i class="fal fa-map-marker-smile"></i>
-          <input type="text" placeholder="Categoria" />
-        </div>
-        <div class="input-icon">
-          <i class="fal fa-file-alt"></i>
-          <input type="text" placeholder="Sobre" />
-        </div>
-        <div class="input-icon">
-          <i class="fal fa-city"></i>
-          <input type="text" placeholder="Baiiro" />
-          <input type="text" placeholder="Cidade" />
-          <input type="text" placeholder="País" />
-        </div>
-        <div class="input-icon">
-          <i class="fal fa-globe"></i>
-          <input type="text" placeholder="Latitude" />
-          <input type="text" placeholder="Longitude" />
-        </div>
-        <button>Adicionar Ponto</button>
-      </div>
+      <app-form-add></app-form-add>
       <button class="voltar-busca box-white anima-slide-right" (click)="toggleAdd()">
         <i class="fas fa-arrow-left"></i>
       </button>

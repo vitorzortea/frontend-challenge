@@ -8,10 +8,11 @@ import { MapComponent } from './map/map.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { NotaComponent } from './nota/nota.component';
+import { FormAddComponent } from './form-add/form-add.component';
 
 
 @NgModule({
-  declarations: [PanelComponent, HeaderComponent, MapComponent, NotaComponent],
+  declarations: [PanelComponent, HeaderComponent, MapComponent, NotaComponent, FormAddComponent],
   imports: [
     CommonModule,
     PanelRoutingModule,

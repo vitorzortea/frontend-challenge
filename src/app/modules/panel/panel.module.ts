@@ -7,10 +7,11 @@ import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { NotaComponent } from './nota/nota.component';
 
 
 @NgModule({
-  declarations: [PanelComponent, HeaderComponent, MapComponent],
+  declarations: [PanelComponent, HeaderComponent, MapComponent, NotaComponent],
   imports: [
     CommonModule,
     PanelRoutingModule,

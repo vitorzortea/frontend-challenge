@@ -6,10 +6,6 @@ import { ComentariosService } from './comentarios.service';
 })
 export class PlacesService {
 
-  notas = this.comentarioService.comments.map((e) => {
-    return (e.reduce( (a, b) => ( {nome: '', nota: a.nota + b.nota, comentario: '' } ) ).nota / e.length).toFixed(2);
-  }) ;
-
   places = [
     {
       name: 'Praça do Japão',
@@ -64,4 +60,16 @@ export class PlacesService {
   constructor(
     public comentarioService: ComentariosService
   ) { }
+  get notas() {
+    return this.comentarioService.comments.map(
+      (eNotas) => eNotas.map((eNota) => eNota.nota)
+    ).map((e) => (e.reduce((a, b) => a + b) / e.length).toFixed(2));
+  }
+
+  atualizarNota() {
+    this.places = this.places.map((e, i) => {
+      e.score = this.notas[i];
+      return e;
+    });
+  }
 }

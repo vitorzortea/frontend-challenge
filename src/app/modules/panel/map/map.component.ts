@@ -47,6 +47,7 @@ export class MapComponent implements OnInit {
       this.oldI = i;
       this.isViewPlace = true;
       this.placeSelect = this.placesService.places[i];
+      console.log(this.placeSelect);
     }
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ComentariosService } from 'src/app/core/services/comentarios.service';
+import { PlacesService } from 'src/app/core/services/places.service';
 
 @Component({
   selector: 'app-comentario',
@@ -18,6 +19,7 @@ export class ComentarioComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public comentarioService: ComentariosService,
+    public placesService: PlacesService,
   ) { }
 
   ngOnInit() {
@@ -29,9 +31,9 @@ export class ComentarioComponent implements OnInit {
   }
 
   postComment() {
-    console.log(this.user);
-    console.log('nome', this.user.name);
+    this.formComment.controls.nota.setValue( Number(this.formComment.controls.nota.value));
     this.comentarioService.comments[this.index].push(this.formComment.value);
+    this.placesService.atualizarNota();
   }
 
 }

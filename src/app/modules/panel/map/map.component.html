@@ -4,11 +4,32 @@
       <div class="menu-map box-white anima-fade">
         <div class="busca">
           <i class="fas fa-search" (click)="toggleViewPlace()"></i>
-          <input type="search" placeholder="Buscar Local">
+          <form [formGroup]="formSearch">
+            <input
+				type="search"
+				placeholder="Buscar Local"
+				formControlName="search"
+				(keyup)="pesquisarLugar()"
+			>
+          </form>
         </div>
         <button class="adicionar-local" (click)="toggleAdd()">
           <i class="fas fa-plus"></i>
         </button>
+        <ng-container *ngIf="resultadoPesquisa">
+          <div class="resultado-pesquisa anima-slide-bottom">
+            <ng-container *ngFor="let resultado of resultadoPesquisa">
+              <div (click)="abrirPesquisaLugar(resultado)">
+                <div class="photo-result" [style.background-image]="'url(assets/img/places/' + resultado.photo + '.jpg)'"></div>
+                <div>
+                  <h2>{{resultado.name}}</h2>
+                  <p>{{resultado.address}}, {{resultado.city}} - {{resultado.countrie}}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+
       </div>
     </ng-container>
     <ng-container *ngIf="isAdd">

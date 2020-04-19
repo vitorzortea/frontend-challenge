@@ -23,10 +23,12 @@
       <div class="comentarios">
         <h2>Comentários <button (click)="ativarComment()"><i class="fal fa-comment-alt-lines"></i></button></h2>
         <ng-container *ngFor="let comment of comentarioService.comments[index].reverse()">
-          <div>
-            <h3>{{comment.nome}} <span><i class="fas fa-star"></i> {{comment.nota}}</span></h3>
-            <p>{{comment.comentario}}</p>
-          </div>
+          <ng-container *ngIf="comment.comentario">
+            <div>
+              <h3>{{comment.nome}} <span><i class="fas fa-star"></i> {{comment.nota}}</span></h3>
+              <p>{{comment.comentario}}</p>
+            </div>
+          </ng-container>
         </ng-container>
       </div>
 

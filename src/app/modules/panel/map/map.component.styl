@@ -11,6 +11,39 @@
     display flex
     z-index 3
     overflow hidden
+    flex-wrap wrap
+
+    .resultado-pesquisa
+      width 100%
+      flex 100%
+      padding 5px
+      border-top solid 1px color-gray2
+      transition 0.5s
+
+      &>div
+        padding 10px 5px
+
+        &:hover
+          cursor pointer
+          background-color color-gray1
+          border-radius 10px
+
+        &:not(:last-child)
+          border-bottom solid 1px color-gray2
+
+        &>div
+          display inline-table
+
+          &:first-child
+            width 35px
+            height 35px
+            margin-right 10px
+            border-radius 50%
+            background-color color-gray2
+            background-position center
+            background-size cover
+            vertical-align text-top
+
 
     .busca
       position relative
@@ -39,7 +72,3 @@
 
   agm-map
     height calc(100vh - 100px)
-
-  agm-marker
-    background red
-    color green

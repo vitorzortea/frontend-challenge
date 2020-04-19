@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlacesService } from 'src/app/core/services/places.service';
 import { ComentariosService } from 'src/app/core/services/comentarios.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -9,22 +10,31 @@ import { ComentariosService } from 'src/app/core/services/comentarios.service';
   styleUrls: ['./map.component.styl']
 })
 export class MapComponent implements OnInit {
-  lat = -25.4309092;
-  lng = -49.2455052;
-  zoom = 12.5;
+  public lat = -25.4309092;
+  public lng = -49.2455052;
+  public zoom = 12.5;
 
-  isAdd = false;
-  isViewPlace = false;
-  isComment = false;
-  oldI = -1;
-  placeSelect: any;
+  public isAdd = false;
+  public isViewPlace = false;
+  public isComment = false;
+  public oldI = -1;
+  public placeSelect: any;
+
+  public formSearch: FormGroup;
+  public resultadoPesquisa: object[];
+  public resultadoIndex: number[];
 
   constructor(
+    private fb: FormBuilder,
     public placesService: PlacesService,
     public comentarioService: ComentariosService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.formSearch = this.fb.group({
+      search: new FormControl(''),
+    });
+  }
 
   toggleAdd() {
     this.isViewPlace = false;
@@ -48,7 +58,6 @@ export class MapComponent implements OnInit {
       this.oldI = i;
       this.isViewPlace = true;
       this.placeSelect = this.placesService.places[i];
-      console.log(this.placeSelect);
     }
   }
 
@@ -59,6 +68,22 @@ export class MapComponent implements OnInit {
     if (!this.isComment) {
       this.isViewPlace = true;
     }
+  }
+
+  pesquisarLugar() {
+    this.resultadoPesquisa = this.placesService.places.filter(
+      (e) => e.name.toLowerCase().indexOf(this.formSearch.value.search.toLowerCase()) !== -1
+    );
+    console.log(this.resultadoPesquisa);
+    if (!this.resultadoPesquisa[0] || !this.formSearch.value.search) {
+      this.resultadoPesquisa = undefined;
+    }
+  }
+
+  abrirPesquisaLugar(place) {
+    this.abrirEspecificPlace(
+      this.placesService.places.findIndex((e) => e.name === place.name)
+    );
   }
 
 }

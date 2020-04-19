@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from 'src/app/core/services/places.service';
+import { ComentariosService } from 'src/app/core/services/comentarios.service';
 
 
 @Component({
@@ -18,10 +19,12 @@ export class MapComponent implements OnInit {
   placeSelect: any;
 
   constructor(
-    public placesService: PlacesService
+    public placesService: PlacesService,
+    public comentarioService: ComentariosService
   ) { }
 
   ngOnInit() {
+    console.log(this.placesService.notas);
   }
 
   toggleAdd() {
@@ -47,6 +50,11 @@ export class MapComponent implements OnInit {
       this.isViewPlace = true;
       this.placeSelect = this.placesService.places[i];
     }
+  }
+
+  toggleComentario() {
+    this.isAdd = false;
+    this.isViewPlace = false;
   }
 
 }

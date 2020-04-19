@@ -82,6 +82,36 @@
   position absolute
   top 20px
   left 20px
-  height calc(100vh - 150px)
+  max-height calc(100vh - 150px)
   z-index 3
+  overflow-x hidden
+  overflow-y auto
+
+
+  &::-webkit-scrollbar
+    width 8px
+
+  &::-webkit-scrollbar-track
+    background #f1f1f1
+
+  &::-webkit-scrollbar-thumb
+    background #909090
+    border-radius 10px
+
+  &::-webkit-scrollbar-thumb:hover
+    background #999
+
+.voltar-busca
+    position absolute
+    top 20px
+    left 320px
+    padding 5px 10px
+    font-size 20px
+    z-index 2
+    border-radius 0 10px 10px 0
+
+    &:hover
+      cursor pointer
+      background-color color-yellow
+      color color-white
 

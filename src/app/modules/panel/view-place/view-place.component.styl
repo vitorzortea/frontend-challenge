@@ -1,3 +1,5 @@
+@import '../../../../stylus/_variable'
+
 .photo-place
   height 150px
   background-size cover
@@ -14,3 +16,42 @@ p
 
 .info-place>div
   padding 10px 8px
+
+.comentarios
+  width 100%
+  padding-top 20px
+
+  h2
+    display flex
+    justify-content space-between
+    align-items center
+
+    button
+      padding 8px 10px
+      border solid 1px
+      border-radius 5px
+      font-size 16px
+      line-height 1em
+      color color-blue
+      cursor pointer
+
+      &:hover
+        color color-white
+        background-color color-blue
+
+  h3
+    font-size 13px
+    padding-bottom 5px
+
+    span
+      font-weight normal
+      display inline-table
+      padding-left 10px
+      color color-blue
+      font-size 12px
+
+  &>div
+    padding 10px 0
+
+    &:not(:last-child)
+      border-bottom solid 1px color-gray2

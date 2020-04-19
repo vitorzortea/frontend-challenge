@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ComentariosService } from 'src/app/core/services/comentarios.service';
 
 @Component({
   selector: 'app-view-place',
@@ -8,8 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ViewPlaceComponent implements OnInit {
 
   @Input() placeSelect;
+  @Input() index;
 
-  constructor() { }
+  isComment = false;
+
+
+  constructor(
+    public comentarioService: ComentariosService
+  ) { }
 
   ngOnInit() {
   }

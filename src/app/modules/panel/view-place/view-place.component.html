@@ -1,5 +1,5 @@
 <div class="main-map anima-slide-down">
-  <ng-container *ngIf="placeSelect">
+  <ng-container *ngIf="!isComment">
     <div class="photo-place" [style.background-image]="'url(assets/img/places/' + placeSelect.photo + '.jpg)'"></div>
     <div class="info-place">
       <div>
@@ -9,6 +9,7 @@
           <app-nota [nota]="placeSelect.score"></app-nota>
         </span>
       </div>
+
       <div>
         <h2>Categoria</h2>
         <p>{{placeSelect.category}}</p>
@@ -18,6 +19,17 @@
         <h2>Sobre</h2>
         <p>{{placeSelect.about}}</p>
       </div>
+
+      <div class="comentarios">
+        <h2>Comentários <button><i class="fal fa-comment-alt-lines"></i></button></h2>
+        <ng-container *ngFor="let comment of comentarioService.comments[index].reverse()">
+          <div>
+            <h3>{{comment.nome}} <span><i class="fas fa-star"></i> {{comment.nota}}</span></h3>
+            <p>{{comment.comentario}}</p>
+          </div>
+        </ng-container>
+      </div>
+
     </div>
   </ng-container>
 </div>

@@ -16,7 +16,8 @@
       </button>
     </ng-container>
     <ng-container *ngIf="isViewPlace">
-      <app-view-place [placeSelect]="placeSelect"></app-view-place>
+
+      <app-view-place [placeSelect]="placeSelect" [index]="oldI"></app-view-place>
       <button class="voltar-busca box-white anima-slide-right" (click)="fecharEspecificPlace(-2)">
         <i class="fas fa-arrow-left"></i>
       </button>

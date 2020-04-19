@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
+import { ComentariosService } from './comentarios.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
 
+  notas = this.comentarioService.comments.map((e) => {
+    return (e.reduce( (a, b) => ( {nome: '', nota: a.nota + b.nota, comentario: '' } ) ).nota / e.length).toFixed(2);
+  }) ;
+
   places = [
     {
       name: 'Praça do Japão',
       category: 'Praça',
       about: 'Praça paisagística em homenagem à cultura japonesa, com cerejeiras, lagoas e casa de chá tradicional.',
-      score: 4.6,
+      score: this.notas[0],
       address: 'Bate',
       city: 'Curitiba',
       countrie: 'Brazil',
@@ -22,7 +27,7 @@ export class PlacesService {
       name: 'Jardim Botânico de Curitiba',
       category: 'Jardim',
       about: 'Parque fundado em 1991, com uma estufa, um jardim formal no estilo francês e um jardim de sensações.',
-      score: 5,
+      score: this.notas[1],
       address: 'Matriz',
       city: 'Curitiba',
       countrie: 'Brazil',
@@ -34,7 +39,7 @@ export class PlacesService {
       name: 'Praça Tiradentes',
       category: 'Praça',
       about: 'A Praça Tiradentes é um espaço público do município de Curitiba. Com 9.026 m².',
-      score: 4,
+      score: this.notas[2],
       address: 'Centro',
       city: 'Curitiba',
       countrie: 'Brazil',
@@ -46,7 +51,7 @@ export class PlacesService {
       name: 'Memorial Árabe',
       category: 'Monumento',
       about: 'Memorial Árabe é um ponto turístico em homenagem à cultura árabe localizado no centro da cidade de Curitiba.',
-      score: 4,
+      score: this.notas[3],
       address: 'Centro Cívico',
       city: 'Curitiba',
       countrie: 'Brazil',
@@ -54,7 +59,9 @@ export class PlacesService {
       lat: -25.423219,
       lng: -49.268527,
     },
-  ]
+  ];
 
-  constructor() { }
+  constructor(
+    public comentarioService: ComentariosService
+  ) { }
 }

@@ -34,7 +34,12 @@ export class ComentarioComponent implements OnInit {
 
   postComment() {
     this.formComment.controls.nota.setValue( Number(this.formComment.controls.nota.value));
-    this.comentarioService.comments[this.index].push(this.formComment.value);
+    if (this.comentarioService.comments[this.index]) {
+      this.comentarioService.comments[this.index].push(this.formComment.value);
+    } else {
+      this.comentarioService.comments.push([]);
+      this.comentarioService.comments[this.index].push(this.formComment.value);
+    }
     this.placesService.atualizarNota();
 
     this.desativarComment();

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ComentariosService } from 'src/app/core/services/comentarios.service';
 
 @Component({
@@ -11,19 +11,17 @@ export class ViewPlaceComponent implements OnInit {
   @Input() placeSelect;
   @Input() index;
 
-  isComment = false;
+  @Output() isComment = new EventEmitter();
 
 
   constructor(
     public comentarioService: ComentariosService
   ) { }
 
-  ngOnInit() {
-    this.isComment = false;
-  }
+  ngOnInit() { }
 
-  toggleComment() {
-    this.isComment = !this.isComment;
+  ativarComment() {
+    this.isComment.emit(true);
   }
 
   postComment() {

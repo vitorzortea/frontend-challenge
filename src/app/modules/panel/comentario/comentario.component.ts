@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ComentariosService } from 'src/app/core/services/comentarios.service';
 import { PlacesService } from 'src/app/core/services/places.service';
@@ -11,6 +11,8 @@ import { PlacesService } from 'src/app/core/services/places.service';
 export class ComentarioComponent implements OnInit {
   @Input() placeSelect;
   @Input() index;
+
+  @Output() isComment = new EventEmitter();
 
   public formComment: FormGroup;
 
@@ -34,6 +36,12 @@ export class ComentarioComponent implements OnInit {
     this.formComment.controls.nota.setValue( Number(this.formComment.controls.nota.value));
     this.comentarioService.comments[this.index].push(this.formComment.value);
     this.placesService.atualizarNota();
+
+    this.desativarComment();
+  }
+
+  desativarComment() {
+    this.isComment.emit(false);
   }
 
 }

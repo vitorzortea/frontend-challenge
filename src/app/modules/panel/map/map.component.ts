@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
 
   isAdd = false;
   isViewPlace = false;
+  isComment = false;
   oldI = -1;
   placeSelect: any;
 
@@ -51,9 +52,13 @@ export class MapComponent implements OnInit {
     }
   }
 
-  toggleComentario() {
+  toggleComentario(resposta) {
     this.isAdd = false;
     this.isViewPlace = false;
+    this.isComment = resposta;
+    if (!this.isComment) {
+      this.isViewPlace = true;
+    }
   }
 
 }

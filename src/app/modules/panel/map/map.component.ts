@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlacesService } from 'src/app/core/services/places.service';
 import { ComentariosService } from 'src/app/core/services/comentarios.service';
 
@@ -23,9 +23,7 @@ export class MapComponent implements OnInit {
     public comentarioService: ComentariosService
   ) { }
 
-  ngOnInit() {
-    console.log(this.placesService.notas);
-  }
+  ngOnInit() {}
 
   toggleAdd() {
     this.isViewPlace = false;
@@ -41,9 +39,9 @@ export class MapComponent implements OnInit {
 
   abrirEspecificPlace(i) {
     this.isAdd = false;
+    this.isViewPlace = false;
     if (i === this.oldI) {
       this.oldI = -1;
-      this.isViewPlace = false;
       this.placeSelect = undefined;
     } else {
       this.oldI = i;

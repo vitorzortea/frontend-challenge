@@ -22,8 +22,12 @@ export class ViewPlaceComponent implements OnInit {
     this.isComment = false;
   }
 
-  toggleAdd() {
+  toggleComment() {
     this.isComment = !this.isComment;
+  }
+
+  postComment() {
+
   }
 
 }

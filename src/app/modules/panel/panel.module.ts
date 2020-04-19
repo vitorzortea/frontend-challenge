@@ -13,10 +13,11 @@ import { FormAddComponent } from './form-add/form-add.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewPlaceComponent } from './view-place/view-place.component';
+import { ComentarioComponent } from './comentario/comentario.component';
 
 
 @NgModule({
-  declarations: [PanelComponent, HeaderComponent, MapComponent, NotaComponent, FormAddComponent, ViewPlaceComponent],
+  declarations: [PanelComponent, HeaderComponent, MapComponent, NotaComponent, FormAddComponent, ViewPlaceComponent, ComentarioComponent],
   imports: [
     CommonModule,
     PanelRoutingModule,

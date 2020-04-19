@@ -21,7 +21,7 @@
       </div>
 
       <div class="comentarios">
-        <h2>Comentários <button (click)="toggleAdd()"><i class="fal fa-comment-alt-lines"></i></button></h2>
+        <h2>Comentários <button (click)="toggleComment()"><i class="fal fa-comment-alt-lines"></i></button></h2>
         <ng-container *ngFor="let comment of comentarioService.comments[index].reverse()">
           <div>
             <h3>{{comment.nome}} <span><i class="fas fa-star"></i> {{comment.nota}}</span></h3>
@@ -33,56 +33,11 @@
     </div>
   </ng-container>
   <ng-container *ngIf="isComment">
-    <div class="novo-comentario anima-slide-down">
-      <h1>Novo Comentário <span>{{placeSelect.name}}</span></h1>
-      <div>
-        <h2>Nota</h2>
-        <div class="btn-notas">
-          <span class="base-nota">
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <span class="nota-select">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </span>
-            <i class="far fa-star"></i>
-            <span class="nota-select">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </span>
-            <i class="far fa-star"></i>
-            <span class="nota-select">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </span>
-            <i class="far fa-star"></i>
-            <span class="nota-select">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </span>
-          </span>
-        </div>
-      </div>
-      <div>
-        <label>
-          <h2>Seu Comentário</h2>
-          <textarea placeholder="Escreva seu comentário"></textarea>
-        </label>
-      </div>
-      <div>
-        <button>Enviar Comentário</button>
-      </div>
-    </div>
+    <app-comentario [placeSelect]="placeSelect" [index]="index"></app-comentario>
   </ng-container>
 </div>
 <ng-container *ngIf="isComment">
-  <button class="voltar-busca box-white" (click)="toggleAdd()">
+  <button class="voltar-busca box-white" (click)="toggleComment()">
     <i class="fas fa-arrow-left"></i>
   </button>
 </ng-container>

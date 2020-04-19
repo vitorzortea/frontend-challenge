@@ -1,0 +1,59 @@
+<form class="novo-comentario anima-slide-down" [formGroup]="formComment">
+  <h1>Novo Comentário <span>{{placeSelect.name}}</span></h1>
+  <div>
+    <h2>Nota</h2>
+    <div class="btn-notas">
+      <label>
+        <input type="radio" formControlName="nota" value="1">
+        <i class="fas fa-star"></i>
+      </label>
+      <label>
+        <input type="radio" formControlName="nota" value="2">
+        <span class="nota-select">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+        <i class="far fa-star"></i>
+      </label>
+      <label>
+        <input type="radio" formControlName="nota" value="3">
+        <span class="nota-select">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+        <i class="far fa-star"></i>
+      </label>
+      <label>
+        <input type="radio" formControlName="nota" value="4">
+        <span class="nota-select">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+        <i class="far fa-star"></i>
+      </label>
+      <label>
+        <input type="radio" formControlName="nota" value="5">
+        <span class="nota-select">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+        <i class="far fa-star"></i>
+      </label>
+    </div>
+  </div>
+  <div>
+    <label>
+      <h2>Seu Comentário</h2>
+      <textarea placeholder="Escreva seu comentário" formControlName="comentario"></textarea>
+    </label>
+  </div>
+  <div>
+    <button (click)="postComment()">Enviar Comentário</button>
+  </div>
+</form>

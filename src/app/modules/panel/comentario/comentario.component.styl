@@ -1,0 +1,79 @@
+@import '../../../../stylus/_variable'
+
+.novo-comentario
+  padding 10px
+
+  h1
+    font-size 18px
+    padding-bottom 10px
+    border-bottom solid 1px color-gray-light-font
+    margin-bottom 10px
+
+    span
+      font-size 10px
+      font-weight normal
+
+  &>div
+    padding 10px
+
+  .btn-notas
+    font-size 32px
+    color color-blue
+    position relative
+
+    label
+
+      &>input
+        display none
+
+        &:checked+span
+          opacity 1
+
+      &>i
+        position relative
+        z-index 4
+        cursor pointer
+
+      &>span
+        position absolute
+        z-index 2
+        top 0
+        left 0
+        width 100%
+        opacity 0
+
+      &:hover>span
+        opacity 1
+
+  textarea
+    padding 10px
+    width 100%
+    max-width 100%
+    min-width 100%
+    min-height 8em
+    font-size 16px
+    border solid 1px color-blue
+    border-radius 10px
+
+  label>h2
+    margin 0 0 -0.5em 10px
+    background-color color-white
+    padding 0 5px
+    display table
+    position relative
+    z-index 2
+
+  button
+    display table
+    width 100%
+    text-transform uppercase
+    font-weight bold
+    font-size 16px
+    color color-blue
+    background color-yellow
+    padding 10px
+    border-radius 10px
+    cursor pointer
+
+.voltar-busca
+  z-index 3

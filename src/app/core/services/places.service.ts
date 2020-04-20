@@ -9,6 +9,7 @@ export class PlacesService {
   public imageSelect: string;
   public favorites = [];
   public register = [];
+  public category = [ 'Estátuas', 'Praças', 'Museus', 'Shopping', 'Monumentos', 'Praias' ];
   public places = [
     {
       name: 'Praça do Japão',

@@ -38,15 +38,13 @@ export class MapComponent implements OnInit {
       search: new FormControl(''),
     });
   }
-
-  toggleAdd() {
+  toggleAdd(resposta?) {
     this.isViewPlace = false;
-    this.isAdd = !this.isAdd;
+    this.isAdd = (resposta) ? resposta : !this.isAdd;
     this.isFavorites = false;
     this.isRegister = false;
     this.placesService.imageSelect = '';
   }
-
   fecharEspecificPlace() {
     this.isAdd = false;
     this.isViewPlace = false;
@@ -55,7 +53,6 @@ export class MapComponent implements OnInit {
     this.oldI = -1;
     this.placeSelect = undefined;
   }
-
   abrirEspecificPlace(i) {
     this.isAdd = false;
     this.isViewPlace = false;
@@ -70,7 +67,6 @@ export class MapComponent implements OnInit {
       this.placeSelect = this.placesService.places[i];
     }
   }
-
   toggleComentario(resposta) {
     this.isAdd = false;
     this.isViewPlace = false;
@@ -81,7 +77,6 @@ export class MapComponent implements OnInit {
       this.isViewPlace = true;
     }
   }
-
   toggleFavorites() {
     this.isViewPlace = false;
     this.isAdd = false;
@@ -108,7 +103,6 @@ export class MapComponent implements OnInit {
       this.placesService.favorites.splice(indexRemove, 1);
     }
   }
-
   pesquisarLugar() {
     this.resultadoPesquisa = this.placesService.places.filter(
       (e) => e.name.toLowerCase().indexOf(this.formSearch.value.search.toLowerCase()) !== -1
@@ -117,11 +111,9 @@ export class MapComponent implements OnInit {
       this.resultadoPesquisa = undefined;
     }
   }
-
   abrirPesquisaLugar(place) {
     this.abrirEspecificPlace(
       this.placesService.places.findIndex((e) => e.name === place.name)
     );
   }
-
 }

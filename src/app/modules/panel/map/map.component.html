@@ -46,7 +46,7 @@
       </button>
     </ng-container>
     <ng-container *ngIf="isAdd">
-      <app-form-add></app-form-add>
+      <app-form-add (isAdd)="toggleAdd($event)"></app-form-add>
       <button class="voltar-busca box-white anima-slide-right" (click)="toggleAdd()">
         <i class="fas fa-arrow-left"></i>
       </button>

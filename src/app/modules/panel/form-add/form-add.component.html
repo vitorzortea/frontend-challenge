@@ -15,10 +15,25 @@
       <p>Nome:</p>
       <input type="text" formControlName="name"/>
     </label>
-    <label class="input-text">
-      <p>Categoria:</p>
-      <input type="text" formControlName="category"/>
-    </label>
+    <ng-container *ngIf="!novaCategoria">
+      <label class="input-text">
+        <p>Categoria:</p>
+        <select class="custom-select" formControlName="category" (change)="adicionarCategoria()">
+          <ng-container *ngFor="let category of placesService.category">
+            <option value={{category}}>{{category}}</option>
+          </ng-container>
+          <option value="Adicionar Outra Categoria">Adicionar Outra Categoria</option>
+        </select>
+      </label>
+    </ng-container>
+    <ng-container *ngIf="novaCategoria">
+      <label class="input-text">
+        <p>Categoria Personalizada:</p>
+        <input type="text" formControlName="category"/>
+      </label>
+    </ng-container>
+
+
     <label class="input-text">
       <p>Endereço:</p>
       <input type="text" placeholder="Bairro, Cidade - País" formControlName="address" />

@@ -17,6 +17,8 @@ export class MapComponent implements OnInit {
   public isAdd = false;
   public isViewPlace = false;
   public isComment = false;
+  public isFavorites = false;
+
   public oldI = -1;
   public placeSelect: any;
 
@@ -45,6 +47,7 @@ export class MapComponent implements OnInit {
   fecharEspecificPlace() {
     this.isAdd = false;
     this.isViewPlace = false;
+    this.isFavorites = false;
     this.oldI = -1;
     this.placeSelect = undefined;
   }
@@ -52,6 +55,7 @@ export class MapComponent implements OnInit {
   abrirEspecificPlace(i) {
     this.isAdd = false;
     this.isViewPlace = false;
+    this.isFavorites = false;
     if (i === this.oldI) {
       this.oldI = -1;
       this.placeSelect = undefined;
@@ -65,10 +69,23 @@ export class MapComponent implements OnInit {
   toggleComentario(resposta) {
     this.isAdd = false;
     this.isViewPlace = false;
+    this.isFavorites = false;
     this.isComment = resposta;
     if (!this.isComment) {
       this.isViewPlace = true;
     }
+  }
+
+  toggleFavorites() {
+    this.isViewPlace = false;
+    this.isAdd = false;
+    this.isFavorites = !this.isFavorites;
+  }
+  deleteFavorite(index) {
+    this.placesService.favorites.splice(index, 1);
+  }
+  openFavorite(index) {
+    this.abrirEspecificPlace(index);
   }
 
   pesquisarLugar() {

@@ -1,16 +1,16 @@
 <div class="map-interface">
   <ng-container>
-    <ng-container *ngIf="!isAdd && !isViewPlace && !isComment">
+    <ng-container *ngIf="!isAdd && !isViewPlace && !isComment && !isFavorites">
       <div class="menu-map box-white anima-fade">
         <div class="busca">
           <i class="fas fa-search" (click)="toggleViewPlace()"></i>
           <form [formGroup]="formSearch">
             <input
-				type="search"
-				placeholder="Buscar Local"
-				formControlName="search"
-				(keyup)="pesquisarLugar()"
-			>
+              type="search"
+              placeholder="Buscar Local"
+              formControlName="search"
+              (keyup)="pesquisarLugar()"
+            >
           </form>
         </div>
         <button class="adicionar-local" (click)="toggleAdd()">
@@ -20,7 +20,7 @@
           <div class="resultado-pesquisa anima-slide-bottom">
             <ng-container *ngFor="let resultado of resultadoPesquisa">
               <div (click)="abrirPesquisaLugar(resultado)">
-                <div class="photo-result" [style.background-image]="'url(assets/img/places/' + resultado.photo + '.jpg)'"></div>
+                <div class="photo-result" [style.background-image]="'url(' + resultado.photo + ')'"></div>
                 <div>
                   <h2>{{resultado.name}}</h2>
                   <p>{{resultado.address}}, {{resultado.city}} - {{resultado.countrie}}</p>
@@ -31,6 +31,13 @@
         </ng-container>
 
       </div>
+      <button
+        class="btn-favorite box-white anima-slide-left"
+        title="Meus Favoritos"
+        (click)="toggleFavorites()"
+      >
+        <i class="fal fa-heart"></i>
+      </button>
     </ng-container>
     <ng-container *ngIf="isAdd">
       <app-form-add></app-form-add>
@@ -47,6 +54,36 @@
     <ng-container *ngIf="isComment">
       <app-comentario [placeSelect]="placeSelect" [index]="oldI" (isComment)="toggleComentario($event)"></app-comentario>
       <button class="voltar-busca box-white anima-slide-right" (click)="toggleComentario(false)">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="isFavorites">
+      <div class="main-map favorite-list anima-slide-down">
+        <h1>Pontos Favoritos</h1>
+        <ng-container *ngIf="placesService.favorites[0]">
+          <ng-container *ngFor="let favoritoIndex of placesService.favorites; let i=index">
+              <div (click)="openFavorite(favoritoIndex)">
+                <div [style.background-image]="'url(' + placesService.places[favoritoIndex].photo + ')'"></div>
+                <div>
+                  <h2>{{placesService.places[favoritoIndex].name}}</h2>
+                  <p>
+                    {{placesService.places[favoritoIndex].address}},
+                    {{placesService.places[favoritoIndex].city}} -
+                    {{placesService.places[favoritoIndex].countrie}}
+                  </p>
+                </div>
+                <button class="box-white" (click)="deleteFavorite(i)">
+                  <i class="fas fa-map-marker-times"></i>
+                </button>
+              </div>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!placesService.favorites">
+          <p>Você ainda não tem Lugares favoritos</p>
+        </ng-container>
+
+      </div>
+      <button class="voltar-busca box-white anima-slide-right" (click)="toggleFavorites()">
         <i class="fas fa-arrow-left"></i>
       </button>
     </ng-container>

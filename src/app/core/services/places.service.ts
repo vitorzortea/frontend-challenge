@@ -6,7 +6,8 @@ import { ComentariosService } from './comentarios.service';
 })
 export class PlacesService {
 
-  public imageSelect = '';
+  public imageSelect: string;
+  public favorites = [];
   public places = [
     {
       name: 'Praça do Japão',

@@ -6,7 +6,8 @@
   background-position center
 
 h1
-  font-size 18px
+  font-size 17px
+  margin-bottom -5px
 
 h2
   font-size 12px
@@ -16,6 +17,24 @@ p
 
 .info-place>div
   padding 10px 8px
+
+.header-view
+    display flex
+    align-items center
+    justify-content space-between
+
+    button
+      padding 8px 10px
+      border solid 1px
+      border-radius 5px
+      font-size 16px
+      line-height 1em
+      color color-favorite
+      cursor pointer
+
+      &:hover, &.isfavorite
+        color color-white
+        background-color color-favorite
 
 .comentarios
   width 100%

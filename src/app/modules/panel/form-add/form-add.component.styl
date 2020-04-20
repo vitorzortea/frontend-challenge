@@ -8,13 +8,41 @@
   align-items center
   justify-content center
   font-size 60px
-  margin-bottom 20px
+  margin-bottom 10px
   cursor pointer
   background-position center
   background-size cover
 
   input
     display none
+
+.input-text
+  position relative
+  display table
+  border solid 1px color-blue
+  border-radius 5px
+  margin 12px 10px 10px
+  width calc(100% - 20px)
+
+  &.half-input
+    display inline-table
+    max-width calc(50% - 20px)
+
+  p
+    position absolute
+    top 0
+    left 5px
+    padding 0 5px
+    transform translate(0, -50%)
+    z-index 2
+    background color-white
+
+  input
+    position relative
+    z-index 3
+    font-size 14px
+    padding 8px 10px
+    width 100%
 
 button
   display table
@@ -26,5 +54,5 @@ button
   background color-yellow
   padding 10px
   border-radius 10px
-  margin 30px auto 10px
+  margin 10px auto 10px
 

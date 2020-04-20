@@ -71,7 +71,10 @@
         border-left solid 1px color-gray2
 
   .btn-favorite
-    padding 5px 10px
+    min-width 45px
+    text-align center
+    line-height 0
+    padding 10px
     font-size 20px
     position absolute
     top 10px
@@ -83,6 +86,24 @@
       color white
       background-color color-favorite
       border-color color-favorite
+      cursor pointer
+
+  .btn-registers
+    min-width 45px
+    text-align center
+    line-height 0
+    padding 10px
+    font-size 20px
+    position absolute
+    top 60px
+    right 10px
+    z-index 3
+    color color-yellow
+
+    &:hover
+      color white
+      background-color color-yellow
+      border-color color-yellow
       cursor pointer
 
 .favorite-list

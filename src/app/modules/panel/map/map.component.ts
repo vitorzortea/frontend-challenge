@@ -18,6 +18,7 @@ export class MapComponent implements OnInit {
   public isViewPlace = false;
   public isComment = false;
   public isFavorites = false;
+  public isRegister = false;
 
   public oldI = -1;
   public placeSelect: any;
@@ -41,6 +42,8 @@ export class MapComponent implements OnInit {
   toggleAdd() {
     this.isViewPlace = false;
     this.isAdd = !this.isAdd;
+    this.isFavorites = false;
+    this.isRegister = false;
     this.placesService.imageSelect = '';
   }
 
@@ -48,6 +51,7 @@ export class MapComponent implements OnInit {
     this.isAdd = false;
     this.isViewPlace = false;
     this.isFavorites = false;
+    this.isRegister = false;
     this.oldI = -1;
     this.placeSelect = undefined;
   }
@@ -56,6 +60,7 @@ export class MapComponent implements OnInit {
     this.isAdd = false;
     this.isViewPlace = false;
     this.isFavorites = false;
+    this.isRegister = false;
     if (i === this.oldI) {
       this.oldI = -1;
       this.placeSelect = undefined;
@@ -70,6 +75,7 @@ export class MapComponent implements OnInit {
     this.isAdd = false;
     this.isViewPlace = false;
     this.isFavorites = false;
+    this.isRegister = false;
     this.isComment = resposta;
     if (!this.isComment) {
       this.isViewPlace = true;
@@ -80,6 +86,7 @@ export class MapComponent implements OnInit {
     this.isViewPlace = false;
     this.isAdd = false;
     this.isFavorites = !this.isFavorites;
+    this.isRegister = false;
   }
   deleteFavorite(index) {
     this.placesService.favorites.splice(index, 1);
@@ -87,12 +94,25 @@ export class MapComponent implements OnInit {
   openFavorite(index) {
     this.abrirEspecificPlace(index);
   }
+  toggleRegister() {
+    this.isViewPlace = false;
+    this.isAdd = false;
+    this.isFavorites = false;
+    this.isRegister = !this.isRegister;
+  }
+  deleteRegister(indexPlace, indexRegister) {
+    this.placesService.places.splice(indexPlace, 1);
+    this.placesService.register.splice(indexRegister, 1);
+    if (this.placesService.favorites.includes(indexPlace)) {
+      const indexRemove = this.placesService.favorites.indexOf(indexPlace);
+      this.placesService.favorites.splice(indexRemove, 1);
+    }
+  }
 
   pesquisarLugar() {
     this.resultadoPesquisa = this.placesService.places.filter(
       (e) => e.name.toLowerCase().indexOf(this.formSearch.value.search.toLowerCase()) !== -1
     );
-    console.log(this.resultadoPesquisa);
     if (!this.resultadoPesquisa[0] || !this.formSearch.value.search) {
       this.resultadoPesquisa = undefined;
     }

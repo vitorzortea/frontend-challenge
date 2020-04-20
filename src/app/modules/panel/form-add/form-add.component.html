@@ -11,29 +11,30 @@
         <input name="imageUrl" type="file" accept="image/*" (change)="placesService.handleInputChange($event)" />
       </label>
     </ng-container>
-    <div class="input-icon">
-      <i class="fal fa-place-of-worship"></i>
-      <input type="text" placeholder="Nome" formControlName="name"/>
-    </div>
-    <div class="input-icon">
-      <i class="fal fa-map-marker-smile"></i>
-      <input type="text" placeholder="Categoria"  formControlName="category"/>
-    </div>
-    <div class="input-icon">
-      <i class="fal fa-file-alt"></i>
-      <input type="text" placeholder="Sobre" formControlName="about" />
-    </div>
-    <div class="input-icon">
-      <i class="fal fa-city"></i>
-      <input type="text" placeholder="Baiiro" formControlName="address" />
-      <input type="text" placeholder="Cidade" formControlName="city" />
-      <input type="text" placeholder="País" formControlName="countrie" />
-    </div>
-    <div class="input-icon">
-      <i class="fal fa-globe"></i>
-      <input type="text" placeholder="Latitude" formControlName="lat" />
-      <input type="text" placeholder="Longitude" formControlName="lng" />
-    </div>
+    <label class="input-text">
+      <p>Nome:</p>
+      <input type="text" formControlName="name"/>
+    </label>
+    <label class="input-text">
+      <p>Categoria:</p>
+      <input type="text" formControlName="category"/>
+    </label>
+    <label class="input-text">
+      <p>Endereço:</p>
+      <input type="text" placeholder="Bairro, Cidade - País" formControlName="address" />
+    </label>
+    <label class="input-text">
+      <p>Sobre:</p>
+      <input type="text" formControlName="about" />
+    </label>
+    <label class="input-text half-input">
+      <p>Latitude:</p>
+      <input type="text" formControlName="lat" />
+    </label>
+    <label class="input-text half-input">
+      <p>Longitude:</p>
+      <input type="text" formControlName="lng" />
+    </label>
     <button (click)="adicionar()">Adicionar Ponto</button>
   </div>
 </form>

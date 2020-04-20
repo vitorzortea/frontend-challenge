@@ -8,15 +8,14 @@ export class PlacesService {
 
   public imageSelect: string;
   public favorites = [];
+  public register = [];
   public places = [
     {
       name: 'Praça do Japão',
       category: 'Praça',
+      address: 'Bate, Curitiba - Brazil',
       about: 'Praça paisagística em homenagem à cultura japonesa, com cerejeiras, lagoas e casa de chá tradicional.',
       score: this.notas[0],
-      address: 'Bate',
-      city: 'Curitiba',
-      countrie: 'Brazil',
       photo: 'assets/img/places/praca-japao.jpg',
       lat: -25.443419,
       lng: -49.287255,
@@ -24,11 +23,9 @@ export class PlacesService {
     {
       name: 'Jardim Botânico de Curitiba',
       category: 'Jardim',
+      address: 'Matriz, Curitiba - Brazil',
       about: 'Parque fundado em 1991, com uma estufa, um jardim formal no estilo francês e um jardim de sensações.',
       score: this.notas[1],
-      address: 'Matriz',
-      city: 'Curitiba',
-      countrie: 'Brazil',
       photo: 'assets/img/places/jardim-botanico.jpg',
       lat: -25.439716,
       lng: -49.239354,
@@ -36,11 +33,9 @@ export class PlacesService {
     {
       name: 'Praça Tiradentes',
       category: 'Praça',
+      address: 'Centro, Curitiba - Brazil',
       about: 'A Praça Tiradentes é um espaço público do município de Curitiba. Com 9.026 m².',
       score: this.notas[2],
-      address: 'Centro',
-      city: 'Curitiba',
-      countrie: 'Brazil',
       photo: 'assets/img/places/praca-tiradente.jpg',
       lat: -25.428766,
       lng: -49.272556,
@@ -50,7 +45,7 @@ export class PlacesService {
       category: 'Monumento',
       about: 'Memorial Árabe é um ponto turístico em homenagem à cultura árabe localizado no centro da cidade de Curitiba.',
       score: this.notas[3],
-      address: 'Centro Cívico',
+      address: 'Centro Cívico, Curitiba - Brazil',
       city: 'Curitiba',
       countrie: 'Brazil',
       photo: 'assets/img/places/arabe.jpg',

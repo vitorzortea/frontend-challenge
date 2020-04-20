@@ -19,11 +19,9 @@ export class FormAddComponent implements OnInit {
     this.formAdd = this.fb.group({
       name: new FormControl(''),
       category: new FormControl(''),
+      address: new FormControl(''),
       about: new FormControl(''),
       score: new FormControl(4.5),
-      address: new FormControl(''),
-      city: new FormControl('Curitiba'),
-      countrie: new FormControl('Brazil'),
       photo: new FormControl(''),
       lat: new FormControl(''),
       lng: new FormControl(''),
@@ -33,7 +31,7 @@ export class FormAddComponent implements OnInit {
   adicionar() {
     this.formAdd.controls.photo.setValue(this.placesService.imageSelect);
     this.placesService.places.push(this.formAdd.value);
-    console.log(this.formAdd.value);
+    this.placesService.register.push(this.placesService.places.length - 1);
   }
 
 }

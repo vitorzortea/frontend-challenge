@@ -3,7 +3,7 @@
     <ng-container *ngIf="!isAdd && !isViewPlace && !isComment && !isFavorites && !isRegister">
       <div class="menu-map box-white anima-fade">
         <div class="busca">
-          <i class="fas fa-search" (click)="toggleViewPlace()"></i>
+          <i class="fas fa-search"></i>
           <form [formGroup]="formSearch">
             <input
               type="search"
@@ -53,7 +53,7 @@
     </ng-container>
     <ng-container *ngIf="isViewPlace">
       <app-view-place [placeSelect]="placeSelect" [index]="oldI" (isComment)="toggleComentario($event)"></app-view-place>
-      <button class="voltar-busca box-white anima-slide-right" (click)="fecharEspecificPlace(-2)">
+      <button class="voltar-busca box-white anima-slide-right" (click)="fecharEspecificPlace()">
         <i class="fas fa-arrow-left"></i>
       </button>
     </ng-container>

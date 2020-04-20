@@ -6,7 +6,8 @@ import { ComentariosService } from './comentarios.service';
 })
 export class PlacesService {
 
-  places = [
+  public imageSelect = '';
+  public places = [
     {
       name: 'Praça do Japão',
       category: 'Praça',
@@ -15,7 +16,7 @@ export class PlacesService {
       address: 'Bate',
       city: 'Curitiba',
       countrie: 'Brazil',
-      photo: 'praca-japao',
+      photo: 'assets/img/places/praca-japao.jpg',
       lat: -25.443419,
       lng: -49.287255,
     },
@@ -27,7 +28,7 @@ export class PlacesService {
       address: 'Matriz',
       city: 'Curitiba',
       countrie: 'Brazil',
-      photo: 'jardim-botanico',
+      photo: 'assets/img/places/jardim-botanico.jpg',
       lat: -25.439716,
       lng: -49.239354,
     },
@@ -39,7 +40,7 @@ export class PlacesService {
       address: 'Centro',
       city: 'Curitiba',
       countrie: 'Brazil',
-      photo: 'praca-tiradente',
+      photo: 'assets/img/places/praca-tiradente.jpg',
       lat: -25.428766,
       lng: -49.272556,
     },
@@ -51,7 +52,7 @@ export class PlacesService {
       address: 'Centro Cívico',
       city: 'Curitiba',
       countrie: 'Brazil',
-      photo: 'arabe',
+      photo: 'assets/img/places/arabe.jpg',
       lat: -25.423219,
       lng: -49.268527,
     },
@@ -72,4 +73,12 @@ export class PlacesService {
       return e;
     });
   }
+
+  handleInputChange(e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded(e) { this.imageSelect = e.target.result; }
 }

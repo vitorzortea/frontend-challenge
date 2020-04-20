@@ -31,6 +31,7 @@ export class FormAddComponent implements OnInit {
   }
 
   adicionar() {
+    this.formAdd.controls.photo.setValue(this.placesService.imageSelect);
     this.placesService.places.push(this.formAdd.value);
     console.log(this.formAdd.value);
   }

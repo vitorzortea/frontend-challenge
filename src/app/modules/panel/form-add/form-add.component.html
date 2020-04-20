@@ -1,8 +1,16 @@
 <form [formGroup]="formAdd">
   <div class="main-map anima-slide-down">
-    <div class="add-photo">
-      <i class="fas fa-camera-alt"></i>
-    </div>
+    <ng-container *ngIf="placesService.imageSelect">
+      <label class="add-photo" [style.background-image]="'url(' + placesService.imageSelect + ')'">
+        <input name="imageUrl" type="file" accept="image/*" (change)="placesService.handleInputChange($event)" />
+      </label>
+    </ng-container>
+    <ng-container *ngIf="!placesService.imageSelect">
+      <label class="add-photo">
+        <i class="fas fa-camera-alt"></i>
+        <input name="imageUrl" type="file" accept="image/*" (change)="placesService.handleInputChange($event)" />
+      </label>
+    </ng-container>
     <div class="input-icon">
       <i class="fal fa-place-of-worship"></i>
       <input type="text" placeholder="Nome" formControlName="name"/>

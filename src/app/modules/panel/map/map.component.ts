@@ -39,6 +39,7 @@ export class MapComponent implements OnInit {
   toggleAdd() {
     this.isViewPlace = false;
     this.isAdd = !this.isAdd;
+    this.placesService.imageSelect = '';
   }
 
   fecharEspecificPlace() {

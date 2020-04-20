@@ -24,8 +24,4 @@ export class ViewPlaceComponent implements OnInit {
     this.isComment.emit(true);
   }
 
-  postComment() {
-
-  }
-
 }

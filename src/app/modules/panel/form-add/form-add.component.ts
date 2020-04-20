@@ -11,6 +11,8 @@ export class FormAddComponent implements OnInit {
 
   @Output() isAdd = new EventEmitter();
 
+  public user = JSON.parse(localStorage.getItem('user'));
+
   public formAdd: FormGroup;
   public novaCategoria = false;
 
@@ -29,6 +31,7 @@ export class FormAddComponent implements OnInit {
       photo: new FormControl('', Validators.required),
       lat: new FormControl('', Validators.required),
       lng: new FormControl('', Validators.required),
+      user: new FormControl(this.user.email, Validators.required),
     });
   }
 
@@ -45,7 +48,6 @@ export class FormAddComponent implements OnInit {
   salvarPonto() {
     this.formAdd.controls.photo.setValue(this.placesService.imageSelect);
     this.placesService.places.push(this.formAdd.value);
-    this.placesService.register.push(this.placesService.places.length - 1);
     if (
       this.novaCategoria &&
       !this.placesService.category.includes(this.formAdd.controls.category.value)
@@ -53,6 +55,7 @@ export class FormAddComponent implements OnInit {
       this.placesService.category.push(this.formAdd.controls.category.value);
     }
     this.isAdd.emit(false);
+    console.log(this.placesService.places);
   }
 
   adicionarCategoria() {

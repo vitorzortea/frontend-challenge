@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./map.component.styl']
 })
 export class MapComponent implements OnInit {
+  public user = JSON.parse(localStorage.getItem('user'));
+
   public lat = -25.4309092;
   public lng = -49.2455052;
   public zoom = 12.5;
@@ -21,7 +23,10 @@ export class MapComponent implements OnInit {
   public isRegister = false;
 
   public oldI = -1;
+
   public placeSelect: any;
+  public indexRegister: any;
+  public indexFavorite: any;
 
   public formSearch: FormGroup;
   public resultadoPesquisa: object[];
@@ -94,10 +99,19 @@ export class MapComponent implements OnInit {
     this.isAdd = false;
     this.isFavorites = false;
     this.isRegister = !this.isRegister;
+    this.getRegister();
+  }
+  getRegister() {
+    this.indexRegister = [];
+    this.placesService.places.map( (e, i) => {
+      if (e.user === this.user.email) {
+        this.indexRegister.push(i);
+      }
+    });
   }
   deleteRegister(indexPlace, indexRegister) {
     this.placesService.places.splice(indexPlace, 1);
-    this.placesService.register.splice(indexRegister, 1);
+    this.getRegister();
     if (this.placesService.favorites.includes(indexPlace)) {
       const indexRemove = this.placesService.favorites.indexOf(indexPlace);
       this.placesService.favorites.splice(indexRemove, 1);

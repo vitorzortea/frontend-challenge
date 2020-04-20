@@ -20,6 +20,7 @@ export class PlacesService {
       photo: 'assets/img/places/praca-japao.jpg',
       lat: -25.443419,
       lng: -49.287255,
+      user: 'admin',
     },
     {
       name: 'Jardim Botânico de Curitiba',
@@ -30,6 +31,7 @@ export class PlacesService {
       photo: 'assets/img/places/jardim-botanico.jpg',
       lat: -25.439716,
       lng: -49.239354,
+      user: 'admin',
     },
     {
       name: 'Praça Tiradentes',
@@ -40,6 +42,7 @@ export class PlacesService {
       photo: 'assets/img/places/praca-tiradente.jpg',
       lat: -25.428766,
       lng: -49.272556,
+      user: 'admin',
     },
     {
       name: 'Memorial Árabe',
@@ -52,6 +55,7 @@ export class PlacesService {
       photo: 'assets/img/places/arabe.jpg',
       lat: -25.423219,
       lng: -49.268527,
+      user: 'admin',
     },
   ];
 

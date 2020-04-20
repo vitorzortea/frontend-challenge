@@ -116,6 +116,9 @@
     margin-bottom 10px
 
   &>div
+    position relative
+
+    &>div
       padding 5px
       display flex
       align-items center
@@ -144,7 +147,21 @@
         &:nth-child(2)
           flex auto
 
-      button:hover
+    button
+      display flex
+      align-items center
+      justify-content center
+      border-radius 20px
+      width 20px
+      height 20px
+      background-color color-white
+      position: absolute
+      right: 10px
+      top: 50%
+      transform: translate(0, -50%)
+      z-index: 3
+
+      &:hover
         color red
         cursor pointer
 

@@ -96,21 +96,23 @@
     <ng-container *ngIf="isRegister">
       <div class="main-map favorite-list anima-slide-down">
         <h1>Pontos Registrados</h1>
-        <ng-container *ngIf="placesService.register[0] || placesService.favorites[0] == 0">
-          <ng-container *ngFor="let registerIndex of placesService.register; let i=index">
-              <div (click)="openFavorite(registerIndex)">
-                <div [style.background-image]="'url(' + placesService.places[registerIndex].photo + ')'"></div>
-                <div>
-                  <h2>{{placesService.places[registerIndex].name}}</h2>
-                  <p>{{placesService.places[registerIndex].address}}</p>
+        <ng-container *ngIf="indexRegister[0] || indexRegister[0] == 0">
+          <ng-container *ngFor="let registerIndex of indexRegister; let i=index">
+              <div>
+                <div (click)="openFavorite(registerIndex)">
+                  <div [style.background-image]="'url(' + placesService.places[registerIndex].photo + ')'"></div>
+                  <div>
+                    <h2>{{placesService.places[registerIndex].name}}</h2>
+                    <p>{{placesService.places[registerIndex].address}}</p>
+                  </div>
                 </div>
-                <button class="box-white" (click)="deleteRegister(registerIndex, i)">
+                <button (click)="deleteRegister(registerIndex, i)">
                   <i class="fas fa-map-marker-times"></i>
                 </button>
               </div>
           </ng-container>
         </ng-container>
-        <ng-container *ngIf="!placesService.register[0] && placesService.favorites[0] != 0">
+        <ng-container *ngIf="!indexRegister[0] && indexRegister[0] != 0">
           <p>Você ainda não registrou nenhum lugar</p>
         </ng-container>
 

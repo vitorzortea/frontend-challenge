@@ -68,6 +68,7 @@
         <h1>Pontos Favoritos</h1>
         <ng-container *ngIf="placesService.favorites[0] || placesService.favorites[0] == 0">
           <ng-container *ngFor="let favoritoIndex of placesService.favorites; let i=index">
+            <div>
               <div (click)="openFavorite(favoritoIndex)">
                 <div [style.background-image]="'url(' + placesService.places[favoritoIndex].photo + ')'"></div>
                 <div>
@@ -78,10 +79,11 @@
                     {{placesService.places[favoritoIndex].countrie}}
                   </p>
                 </div>
-                <button class="box-white" (click)="deleteFavorite(i)">
-                  <i class="fas fa-map-marker-times"></i>
-                </button>
               </div>
+              <button class="box-white" (click)="deleteFavorite(i)">
+                <i class="fas fa-map-marker-times"></i>
+              </button>
+            </div>
           </ng-container>
         </ng-container>
         <ng-container *ngIf="!placesService.favorites[0] && placesService.favorites[0] != 0">
@@ -98,18 +100,18 @@
         <h1>Pontos Registrados</h1>
         <ng-container *ngIf="indexRegister[0] || indexRegister[0] == 0">
           <ng-container *ngFor="let registerIndex of indexRegister; let i=index">
-              <div>
-                <div (click)="openFavorite(registerIndex)">
-                  <div [style.background-image]="'url(' + placesService.places[registerIndex].photo + ')'"></div>
-                  <div>
-                    <h2>{{placesService.places[registerIndex].name}}</h2>
-                    <p>{{placesService.places[registerIndex].address}}</p>
-                  </div>
+            <div>
+              <div (click)="openFavorite(registerIndex)">
+                <div [style.background-image]="'url(' + placesService.places[registerIndex].photo + ')'"></div>
+                <div>
+                  <h2>{{placesService.places[registerIndex].name}}</h2>
+                  <p>{{placesService.places[registerIndex].address}}</p>
                 </div>
-                <button (click)="deleteRegister(registerIndex, i)">
-                  <i class="fas fa-map-marker-times"></i>
-                </button>
               </div>
+              <button (click)="deleteRegister(registerIndex, i)">
+                <i class="fas fa-map-marker-times"></i>
+              </button>
+            </div>
           </ng-container>
         </ng-container>
         <ng-container *ngIf="!indexRegister[0] && indexRegister[0] != 0">
